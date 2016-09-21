@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM2方式绑定事件</title>
+</head>
+<body>
+	<h2>DOM2方式绑定事件</h2>
+	<button>解绑</button>
+	<script type="text/javascript">
+	var h2 = document.getElementsByTagName('h2')[0];
+		function f1(){
+			console.log('甲程序员的小功能');
+		}
+		h2.addEventListener('click',f1);
+
+		//解绑
+		var btn = document.getElementsByTagName('button')[0];
+		btn.onclick = function(){
+			h2.removeEventListener('click',f1);
+		}
+
+		//乙程序员
+		h2.addEventListener('click',function(){
+			console.log('乙程序员的小功能');
+		});
+		//丙程序员
+		h2.addEventListener('click',function(){
+			console.log('丙程序员的小功能');
+		});
+	</script>
+</body>
+</html>

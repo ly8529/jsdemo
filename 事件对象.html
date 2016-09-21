@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#box{
+			width:100px;
+			height:100px;
+			border:1px solid red;
+		}
+	</style>
+</head>
+<body>
+<div id="box"></div>
+<!-- 	<script>
+document.onclick=function (ev)
+{
+	var oEvent=ev||event;
+	console.log(oEvent);
+	
+	// alert(oEvent.clientX+', '+oEvent.clientY);
+	//IE
+	//alert(event.clientX+', '+event.clientY);
+	
+	//FF
+	//alert(ev.clientX+', '+ev.clientY);
+	
+	/*if(ev)
+	{
+		alert(ev.clientX+', '+ev.clientY);
+	}
+	else
+	{
+		alert(event.clientX+', '+event.clientY);
+	}*/
+};
+</script> -->
+<script type="text/javascript">
+			
+		var box = document.getElementById('box');
+
+		box.onmousedown = function(event){
+			console.log( event );
+			console.log( window.event );
+			/*
+			//使用if...else的方式
+			var e;
+			if (event) {
+				e = event;
+			} else {
+				e = window.event;
+			}
+			*/
+
+			//使用三元运算符
+			//var e = event ? event : window.event;
+		
+			//使用或运算符
+			var e = event || window.event;
+
+			console.log( e );
+		}
+		
+		//注册一个键盘按下事件
+		document.onkeydown = function(evt) {
+			var e = evt || window.event;
+
+			//console.log( e );
+
+			switch (e.keyCode){
+				case 37:
+					console.log('向左');
+					break;
+				case 38:
+					console.log('向上');
+					break;
+				case 39:
+					console.log('向右');
+					break;
+				case 40:
+					console.log('向下');
+					break;
+			
+			}
+		}
+
+	</script>
+</body>
+</html>

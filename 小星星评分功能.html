@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<img src="images/rank_1.gif" /><img src="images/rank_2.gif" /><img src="images/rank_1.gif" /><img src="images/rank_2.gif" /><img src="images/rank_1.gif" /><img src="images/rank_2.gif" /><img src="images/rank_1.gif" /><img src="images/rank_2.gif" /><img src="images/rank_1.gif" /><img src="images/rank_2.gif" /><img src="images/rank_1.gif" /><img src="images/rank_2.gif" /><img src="images/rank_1.gif" /><img src="images/rank_2.gif" /><img src="images/rank_1.gif" /><img src="images/rank_2.gif" /><img src="images/rank_1.gif" /><img src="images/rank_2.gif" /><img src="images/rank_1.gif" /><img src="images/rank_2.gif" />
+	<script type="text/javascript">
+	//获取所有的图片
+		var imgs=document.getElementsByTagName('img');
+		//循环注册onmouseover事件
+		for(var i=0,len=imgs.length;i<len;i++){
+			imgs[i]['index']=i;//保存一下每个imgs的索引;
+			imgs[i].onmouseover=function(){
+				//对当前ing前面的所有img。需要做以下处理；
+				for(j=0;j<this['index'];j++){
+					//获取每一个src的属性，替换，设置回来。
+					var str = imgs[j].src;
+					str = str.replace('rank_3','rank_1');
+					str = str.replace('rank_4','rank_2');
+					imgs[j].src = str;
+				}
+				//对当前img后边的所有的img作如下处理：
+				for(var k=this['index']+1;k<len;k++){
+					var str = imgs[k].src;
+					str = str.replace('rank_1','rank_3');
+					str = str.replace('rank_2','rank_4');
+					imgs[k].src= str;
+				}
+			}
+
+		}
+
+
+	</script>
+</body>
+</html>

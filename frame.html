@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			//整个页面所有内容加载完毕之后，执行这里的代码
+			//第一种方式，使用索引来引用对应的frame，索引值从0开始，依次是1,2.....
+
+			var logo = frames[0].document.getElementById('logo');
+			console.log( logo );
+			console.log ( logo.innerHTML );
+
+			//第二种方式，使用frame的name属性来访问
+			// var menu = frames['menu'].document.getElementById('menu');
+			// console.log( menu );
+			// console.log( menu.innerHTML );
+		}
+	</script>
+</head>
+
+	<frameset rows="100,*">
+		<frame src="top.html"></frame>
+		<frameset cols="200,*">
+			<frame src="menu.html" name="menu"></frame>
+			<frame src="main.html"></frame>
+		</frameset>
+	</frameset>
+
+</html>

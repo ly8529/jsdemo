@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>slider</title>
+	<style type="text/css">
+		#div1{
+			position:absolute;
+			width:100px;
+			height:100px;
+			background:red;
+			left:100px;
+			top:100px;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<button>向右滑动</button>
+	<button>向左滑动</button>
+	<button>stop</button>
+	<script type="text/javascript">
+		var box = document.getElementById('div1');
+		var btns = document.getElementsByTagName('button');
+		var t1 = null;
+
+		//右滑
+		btns[0].onclick = function(){
+			clearInterval(t1);
+			t1 = setInterval(function(){
+				var x = box.offsetLeft;
+				box.style.left = x+5+"px";
+			},50);	
+		}
+		//左滑
+		btns[1].onclick = function(){
+			clearInterval(t1);
+			t1 = setInterval(function(){
+				var x = box.offsetLeft;
+				box.style.left = x-5+"px";
+			},50);
+		}
+		//stop
+		btns[2].onclick = function(){
+			clearInterval(t1);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		#box {border:1px solid red;}
+		#p1 {background:#ccc;}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<p id="p1">事件流及其传播</p>
+	</div>
+
+	<script type="text/javascript">		
+		//获取div和p
+		var box = document.getElementById('box');
+		var p1 = document.getElementById('p1');		
+		
+			// //给div绑定一个click事件
+			// box.onclick = function(){
+			// 	console.log( '点击了div' );
+			// }
+			// //给p绑定一个click事件
+			// p1.onclick = function(){
+			// 	console.log( '点击了p' );
+			// }
+			// //给body绑定一个click事件
+			// document.body.onclick = function(){
+			// 	console.log( '点击了body' );
+			// }
+			// //给document绑定一个click事件
+			// document.onclick = function(){
+			// 	console.log( '点击了document');
+			// }
+		
+		
+		// box.addEventListener('click',function(){
+		// 	console.log( '点击了div' );
+		// },true);
+		
+		
+		p1.addEventListener('click',function(){
+			console.log( '点击了p' );
+		},true);
+
+		document.body.addEventListener('click',function(){
+			console.log( '点击了body' );
+		},true);
+
+		document.addEventListener('click',function(){
+			console.log( '点击了document' );
+		},true);
+		
+
+	</script>
+</body>
+</html>

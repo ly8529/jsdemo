@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#div1{
+			border:1px solid red;
+			width:300px;
+			height:300px;
+		}
+	</style>
+</head>
+<body>
+	<div  id="div1">
+		鼠标事件
+	</div>
+	<script type="text/javascript">
+		var div = document.getElementById('div1');
+		div.onmousedown = function(){
+			console.log('onmousedown');
+		}
+		div.onmouseover = function(){
+			console.log('onmouseover');
+		}
+		div.onmouseup = function(){
+			console.log('onmouseup');
+		}
+		div.onclick = function(){
+			console.log('onclick');
+		}
+		div.onmousemove = function(){
+			console.log('onmousemove');
+		}
+		div.onmouseout = function(){
+			console.log('onmouseout');
+		}
+	</script>
+</body>
+</html>

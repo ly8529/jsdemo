@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<textarea name="" id="ta" cols="100" rows="15">
+		<h1 id="time"></h1>
+		<script type="text/javascript">
+			//实例化一个Date对象
+			var dl = new Date();
+			var res="";
+			var y =dl.getFullYear();
+			var m = dl.getMonth()+1;
+			var d = dl.getDate();
+			var h = dl.getHours();
+			var i = dl.getMinutes();
+			var s = dl.getSeconds();
+			res = "今天是"+y+"年"+m+"月"+d+"日，"+h+"："+i+"："+s;
+			console.log(res);
+			document.getElementById('time').innerHTML=res;
+		</script>
+	</textarea>
+	<br />
+	<br />
+	<button id="btn">运行代码</button>
+	<script type="text/javascript">
+		var btn = document.getElementById('btn');
+		var ta = document.getElementById('ta');
+		btn.onclick = function(){
+			var w1 = window.open('','mywindow');
+			w1.document.write(ta.value);
+		}
+	</script>
+</body>
+</html>

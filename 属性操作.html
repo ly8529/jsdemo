@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<h2 id="t1" class="title" teacher='andy'>获取属性操作</h2>
+	<img src="images/csdn.jpg" alt="" />
+
+	<script type="text/javascript">
+		//获取元素
+		var h2 = document.getElementById('t1');
+		var img = document.getElementsByTagName('img')[0];
+		
+		// //获取h2的class属性
+		console.log( h2.class ); //获取不到
+		// console.log(h2.className);
+		// console.log(h2.getAttribute('class'));
+
+		//通过元素来获取属性
+		// console.log( h2.id );
+		// console.log( h2.getAttribute('id') );
+
+		// console.log( img.src );//绝对定位
+		// console.log( img.getAttribute('src') );//相对定位
+
+
+		//获取h2的自定义属性
+		// console.log( h2.teacher );
+		// console.log( h2.getAttribute('teacher') );
+		
+		//设置属性
+		// h2.title = "添加一个title属性，用于提示";
+		// img.setAttribute('id','pic1');
+		
+		// //删除属性
+		h2.removeAttribute('class');
+		h2.removeAttribute('teacher');
+
+	</script>
+</body>
+</html>

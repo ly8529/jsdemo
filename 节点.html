@@ -1,0 +1,50 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1 title='属性' id="t1">html文档</h1>
+	<p>这是一个<strong>简单</strong>文档</p>
+	<script type="text/javascript">
+		var t1 =document.getElementById('t1');
+		console.log(t1);
+
+		console.log(t1.nodeType);
+		var tn1 = t1.firstChild;
+		console.log(tn1.nodeType);
+		
+	</script>
+</body>
+</html> -->
+
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<ul>
+		<li>html</li>
+		<li>css</li>
+		<li>js</li>
+	</ul>
+	
+	<script type="text/javascript">
+		//通过节点的关系找ul
+		var ul = document.body.firstChild;
+		var ul1 = document.body.childNodes[0];
+
+		console.log( ul );
+
+		//通过节点关系找ul下的第一个li中的文本节点，
+		console.log( ul.firstChild.firstChild.nodeValue );
+
+		//通过节点关系找第一个li后面的兄弟li中的文本
+		console.log( ul.firstChild.nextSibling.firstChild.nodeValue );
+
+	</script>
+</body>
+</html>

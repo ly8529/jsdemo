@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<a href="http://www.baidu.com">百度</a>
+	<a href="http://www.qq.com" onclick="return f1() ">腾讯</a>
+	<a href="http://ww.qq.com" onclick="javascript:return confirm('确认要删除么？')">删除</a>
+	<form action="http://www.taobao.com" method="post">
+	用户名：<input type="text" name="username"/>
+	<input type="submit" value="提交"/>
+	<input type="reset" value="重置">
+	</form>
+	<script type="text/javascript">
+		function f1(){
+			console.log('腾讯被点击了');
+			return false;
+		}
+		//给a注册一个click事件
+		var a = document.getElementsByTagName('a')[0];
+		a.onclick = function(){
+			console.log('a被点击了');
+			return false;
+		}
+		//给form注册一个submit事件
+		var form = document.getElementsByTagName('form')[0];
+		form.addEventListener('submit',function(ev){
+			// console.log('表单提交了');
+			//阻止表单提交
+			ev.preventDefault();
+		})
+		//IE
+		// form.attachEvent('onsubmit',function(){
+		// 	console.log('表单提交了');
+		// 	window.event.returnValue = false;
+		// })
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>猜数字</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*    
+		分析过程：
+		首先，需要一个数字，数字需要一个范围
+		其次，需要一个接口，让用户输入数字prompt
+		第三，用户输入数字的时候和随机数进行比较。
+		相等，ok，不猜了
+		不相等，继续玩下去，
+		并且给与提示
+		*/
+		var number = Math.floor(Math.random()*100);
+		while(true){
+			var answer = window.prompt('请输入一个数字：');
+			if(number == answer){
+				alert('你太聪明了');
+				break;
+			}
+			else  if(answer>number){
+					alert('你输入的数字太大了');
+
+				}
+				else {
+					alert('你输入的数字太小了');
+			}
+				}
+			
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="" method="post" name="form1">
+		<lable for="">用户名：</lable>
+		<input type="text" name="username" value="admin" id="user"/ >
+		<br/>
+		<input type="submit" value="注册" />
+	</form>
+	<script  type="text/javascript">
+	// 使用dom 0级的方式
+		var u1= document.forms[0].username;
+		console.log(u1);
+
+		var u2 = document.forms['form1'].username;
+		console.log(u2);
+
+		var u3 = document.forms['form1']['username'];
+		console.log(u3);
+
+		var u4 =document.forms[0]['username'];
+		console.log(u4);
+
+		// 使用节点的方式，在当前的这个需求中不好啊
+
+		var u5= document.getElementById('user');
+		console.log(u5);
+
+		var u6 = document.getElementsByTagName('input');
+		console.log(u6);
+
+		var u7 = document.getElementsByTagName('username')[0];
+		console.log(u7);
+
+
+	</script>
+</body>
+</html>

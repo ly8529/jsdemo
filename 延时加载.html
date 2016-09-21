@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>延时加载</title>
+	<style type="text/css">
+	*{
+		margin:0;
+		padding:0;
+	}
+	ul{
+		list-style: none;
+	}
+	.wrapper{
+		margin:100px auto 0;
+		width:1000px;
+		}
+	h2{
+		background:red;
+		height:40px;
+		line-height:40px;
+		text-align:center;
+	}
+	.box{
+		height:550px;
+		margin:10px 0;
+		border:1px solid blue;
+	}
+	.wrapper ul{
+		border:1px solid green;
+		overflow:hidden;
+		padding:15px 0;
+	}
+	.wrapper li{
+		float:left;
+		text-align:center;
+		width:199px;
+
+	}
+	.wrapper a{
+		display:block;
+	}
+	</style>
+</head>
+<body>
+<script type="text/javascript">
+	window.onload = function(){
+		//获取所有的img
+		var imgs = document.getElementsByTagName('img');
+		//绑定一个滚动事件
+		document.onscroll = function(){
+			var st = document.body.scrollTop || document.documentElement.scrollTop;
+			//获取当前视窗的高度
+			var ch = document.documentElement.clientHeight;
+			for(var i=0,len=imgs.length;i<len;i++){
+				var ot = imgs[i].offsetTop;
+				if(ch+st>=ot+150){//加150是为了测试
+					imgs[i].src = imgs[i].getAttribute('data-src');
+				}
+			}
+		}
+	}
+</script>
+	<div class="wrapper">
+		<h2>图片延迟加载</h2>
+		<div class="box">
+		</div>	
+		<ul>
+			<li>
+				<img data-src="images/v1.jpg" alt="" />
+				<a href="">电影1</a>
+			</li>
+			<li>
+				<img data-src="images/v2.jpg" alt="" />
+				<a href="">电影2</a>
+			</li>
+			<li>
+				<img data-src="images/v3.jpg" alt="" />
+				<a href="">电影3</a>
+			</li>
+			<li>
+				<img data-src="images/v4.jpg" alt="" />
+				<a href="">电影4</a>
+			</li>
+			<li>
+				<img data-src="images/v5.jpg" alt="" />
+				<a href="">电影5</a>
+			</li>
+		</ul>
+
+		<div class="box">
+		
+		</div>
+		<ul>
+			<li>
+				<img data-src="images/v6.jpg" alt="" />
+				<a href="">电影6</a>
+			</li>
+			<li>
+				<img data-src="images/v7.jpg" alt="" />
+				<a href="">电影7</a>
+			</li>
+			<li>
+				<img data-src="images/v8.jpg" alt="" />
+				<a href="">电影8</a>
+			</li>
+			<li>
+				<img data-src="images/v9.jpg" alt="" />
+				<a href="">电影9</a>
+			</li>
+			<li>
+				<img data-src="images/v10.jpg" alt="" />
+				<a href="">电影10</a>
+			</li>
+		</ul>
+
+		<div class="box">
+		
+		</div>
+		<ul>
+			<li>
+				<img data-src="images/v11.jpg" alt="" />
+				<a href="">电影11</a>
+			</li>
+			<li>
+				<img data-src="images/v12.jpg" alt="" />
+				<a href="">电影12</a>
+			</li>
+			<li>
+				<img data-src="images/v13.jpg" alt="" />
+				<a href="">电影13</a>
+			</li>
+			<li>
+				<img data-src="images/v14.jpg" alt="" />
+				<a href="">电影14</a>
+			</li>
+			<li>
+				<img data-src="images/v15.jpg" alt="" />
+				<a href="">电影15</a>
+			</li>
+		</ul>
+		<div class="box">
+		
+		</div>
+	</div>
+	
+</body>
+</html>

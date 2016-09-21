@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>脚本化行内样式S</title>
+	<style type="text/css">
+		h2{
+			background:#ccc;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">
+	<h2 style="font-size:40px;color:red;">js控制行内样式</h2>
+	<button>显示</button>
+	<button>隐藏</button>
+	</div>
+	<script type="text/javascript">
+		var h1 = document.getElementsByTagName('h2')[0];
+		console.log(h1.style.background);
+	</script>
+	<script type="text/javascript">
+	var h2 = document.getElementsByTagName('h2')[0];
+	 console.log(h2.style);
+	 console.log(h2.style[0]);//不建议这么用
+	 console.log(h2.style.color);
+
+	 console.log(h2.style.fontSize);
+
+
+	 //设置
+	 h2.style.border = "3px solid blue";
+
+	 var btns = document.getElementsByTagName('button');
+
+	 btns[1].onclick = function(){
+	 	h2.style.display = "none";
+
+	 }
+	 btns[0].onclick = function(){
+	 	h2.style.display = "block";
+	 }
+	 </script>
+</body>
+</html>

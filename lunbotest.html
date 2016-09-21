@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		*{margin:0; padding:0;}
+		ul {list-style:none;}
+		.box {width:730px; height:454px;  margin:50px auto 0; position:relative;}
+		#big-pic {width:4380px; height:454px; left:0; position:absolute; top:0;}
+		#big-pic a {float:left;}
+		#nav {position:absolute; bottom:10px;  width:130px; left:300px;}
+		#nav li {float:left; width:12px; height:12px; background:#333; color:#fff; text-align:center; line-height:12px; margin: 0 4px; font-size:12px;}
+
+		#nav li.on {background:#c00; font-weight:bold;}
+	</style>
+</head>
+<body>
+	
+	<div class="box">
+		
+		<div id="big-pic">
+			<a href=""><img src="images/jd1.jpg" alt="" /></a>
+			<a href=""><img src="images/jd2.jpg" alt="" /></a>
+			<a href=""><img src="images/jd3.jpg" alt="" /></a>
+			<a href=""><img src="images/jd4.jpg" alt="" /></a>
+			<a href=""><img src="images/jd5.jpg" alt="" /></a>
+			<a href=""><img src="images/jd6.jpg" alt="" /></a>
+		</div>
+
+		<div id="nav">
+			<ul>
+				<li class="on">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		
+		var big = document.getElementById('big-pic');
+		var lis = document.getElementById("nav").getElementsByTagName('li');
+		var t1 = null; //定义一个定时器变量		
+		var init = 0; //表示第几张图片,默认是第一张
+
+		function start(){
+			t1 = setInterval(function(){
+				//大图片的切换
+				//需要改变big的left值
+				init++; //切换到下一张
+				//如果init>=6了，就需要重置
+				/*
+					if (init >= 6) {
+						init = 0;
+					}
+				*/
+				init %= 6;
+				big.style.left =  init * -730  + "px";
+				//导航数字的切换
+				//一刀切，所有的li去掉on
+				for (var i = 0; i < 6; i++) {
+					lis[i].className = "";
+				}
+				//当前的li，加上on
+				lis[init].className = "on";
+			},2000);
+		}
+		
+		//默认情况下，先调用一下start
+		start();
+		
+		//绑定mouseover事件
+		big.onmouseover = function(){
+			clearInterval(t1);
+		}
+
+		//绑定mouserout事件
+		big.onmouseout = function(){
+			//重新start
+			start();
+		}
+
+		//对数字导航进行绑定
+		for (var j = 0, len = lis.length; j < len; j++) {
+			lis[j].idx = j; //这一步，必须要做
+			lis[j].onmouseover = function(){
+				clearInterval(t1);
+				console.log( this.idx );// this.idx就表示是图片的索引0~5之间
+				//大图切换
+				init = this.idx;
+				big.style.left =  init * -730  + "px";
+				//导航切换
+				//一刀切，所有的li去掉on
+				for (var i = 0; i < 6; i++) {
+					lis[i].className = "";
+				}
+				//当前的li，加上on
+				lis[init].className = "on";
+			}
+		}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form>
+		<lable>用户名：</lable><input type="text" name="username"/>
+		<lable>密码: </lable><input type="password" name="psw">
+		<input type="submit" value="登录"/>
+	</form>
+<script type="text/javascript">
+	var inputs = document.getElementsByTagName('input');
+
+	// inputs[0].onfocus=function(){
+	// 	alert('请输入名字');
+	// }
+	// inputs[1].onfocus = function(){
+	// 	alert('请输入密码 ');
+	// }
+
+	inputs[0].onblur = function(){
+		var val = inputs[0].value;
+		if(val==""){
+			alert('用户名不能为空');
+		}
+	}
+</script>
+</body>
+</html>

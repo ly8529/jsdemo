@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.txt-input {color:#999;}
+	</style>
+</head>
+<body>
+	<form action="" method="post">
+		<input type="tetx" name="keywords" value="三体" val="三体" class="txt-input" />
+		<input type="submit"  value="搜索 "/>
+	</form>
+	<script type="text/javascript">
+		var inputs = document.getElementsByTagName('input');
+		var dval = inputs[0].getAttribute('val');
+		inputs[0].onfocus = function(){
+			if(this.value == dval){
+				this.value="";
+			}
+			this.style.color = "red";
+		}
+
+		inputs[0].onblur = function(){
+			if(this.value == ''){
+				this.value = dval;
+				this.style.color = "#999";
+			}
+		}
+	</script>
+</body>
+</html>

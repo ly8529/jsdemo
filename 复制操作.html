@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box">
+		<h2>复制元素</h2>
+		<p>段落1</p>
+	</div>
+	<button>浅复制</button>
+	<button>深复制</button>
+	<script type="text/javascript">
+	var box = document.getElementById('box');
+	var btns = document.getElementsByTagName('button');
+	// 浅复制
+	btns[0].onclick = function(){
+		var node1 = box.cloneNode();
+		document.body.appendChild(node1);
+	}
+	深复制
+	btns[1].onclick = function(){
+		var node2 = box.cloneNode(true);
+		document.body.appendChild(node2);
+	}	
+	</script>
+	
+</body>
+</html>

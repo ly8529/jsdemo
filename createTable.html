@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>createTable</title>
+</head>
+<body>
+	<button>传统方式创建表格</button>
+	<button>新的方式创建表格</button>
+	<script>
+		var btns = document.getElementsByTagName("button");
+		btns[0].onclick = function(){
+			var tb1 = document.createElement('table');
+			var tr1 = document.createElement('tr');
+			var tr2 = document.createElement('tr');
+			var td1 = document.createElement('td');
+			var td2 = document.createElement('td');
+			var td3 = document.createElement('td');
+			var td4 = document.createElement('td');
+			td1.innerHTML = 'td1';
+			td2.innerHTML = 'td2';
+			td3.innerHTML = 'td3';
+			td4.innerHTML = 'td4';
+			tb1.appendChild(tr1);
+			tb1.appendChild(tr2);
+			tr1.appendChild(td1);
+			tr1.appendChild(td2);
+			tr2.appendChild(td3);
+			tr2.appendChild(td4);
+			tb1.border = 1;
+			document.body.appendChild(tb1);
+		}
+		//新的方式
+		btns[1].onclick = function(){
+			var tb1 = document.createElement('table');
+			//插入第一行
+			tb1.insertRow(0);
+			//插入一个单元格
+			tb1.rows[0].insertCell(0);
+			//插入一个单元格
+			tb1.rows[0].insertCell(1);
+			tb1.rows[0].cells[0].innerHTML = 'td1';
+			tb1.rows[0].cells[1].innerHTML = 'td2';
+			//插入第二行
+			tb1.insertRow(1);
+			//插入一个单元格
+			tb1.rows[1].insertCell(0);
+			//插入一个单元格
+			tb1.rows[1].insertCell(1);
+			tb1.rows[1].cells[0].innerHTML = 'td3';
+			tb1.rows[1].cells[1].innerHTML = 'td4';
+			tb1.border = 1;
+			document.body.appendChild(tb1);
+		};
+
+	</script>
+
+</body>
+</html>

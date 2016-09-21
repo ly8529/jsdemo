@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h2>首页</h2>
+	<p>使用元素的操作实现广告的弹出并消失效果</p>
+
+	<script type="text/javascript">
+	var img = document.createElement('img');
+	img.src="call.jpg";
+
+	var h2 = document.getElementsByTagName('h2')[0];
+	document.body.insertBefore(img,h2);
+
+	setTimeout(function(){
+
+		img.parentNode.removeChild(img);
+	},5000);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文本节点</title>
+</head>
+<body>
+	<div id="box">
+		<h2>文本节点</h2>
+		<p></p>
+		<button id="btn1">设置innerHTML</button>
+		<button id="btn2">creatTextNode</button>
+	</div>
+	<script>
+		var btn2= document.getElementById('btn2');
+		var p2 = document.getElementsByTagName('p')[0];
+
+		btn2.onclick = function(){
+			var btn2 = document.createTextNode('<em>createTextNode</em>创建的内容');
+			p2.appendChild(btn2);
+		}
+	</script>
+	<script>
+		var btn1 = document.getElementById('btn1');
+		var p1 = document.getElementsByTagName('p')[0]
+		btn1.onclick = function(){
+  			p1.innerHTML = "这是通过<strong>innerHTML</strong>添加的内容"
+		}
+	</script>
+</body>
+</html>

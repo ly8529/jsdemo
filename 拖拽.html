@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#box{
+			width:100px;
+			height:100px;
+			background:red;
+			position:absolute;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<script type="text/javascript">
+		var box = document.getElementById('box');
+		var divX = 0;
+		var divY = 0;
+		var mouseX = 0;
+		var mouseY= 0;
+		var sw=false;//开关
+		//绑定mousedown事件
+		box.onmousedown = function(ev){
+			var e = ev||event;
+			console.log(e);
+			divX=this.offsetLeft;
+			divY=this.offsetTop;
+			mouseX=e.clientX;
+			mouseY=e.clientY;
+			sw = true;
+		}
+		document.onmousemove = function(ev){
+			var e = ev||event;
+			//只有开关开启了才有效
+			if(sw){
+				var disX = e.clientX-mouseX;
+				var disY = e.clientY-mouseY;
+
+				box.style.left = disX+divX+"px";
+				box.style.top = disY+divY+"px";
+			}
+		}
+		//绑定mouseup
+		document.onmouseup = function(){
+			sw=false;
+		}
+	</script>
+</body>
+</html>

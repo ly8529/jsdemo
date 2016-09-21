@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>
+			<lable for="">存储卡格式</lable>
+			<input type="text" name=""/>
+		</li>
+		<li>
+			<lable for=""><a href="javascript:void(0)" onclick="addColor(this)">[+]</a>颜色</lable>
+			<select name="" id="">
+				<option value="">白色</option>
+				<option value="">黑色</option>
+				<option value="">金色</option>
+				<option value="">粉色</option>
+			</select>
+		</li>
+		<li>
+			<lable for="">耳机接口</lable>
+			<input type="text" name="" />
+		</li>
+	</ul>
+	<script type="text/javascript">
+		//定义addColor函数
+		function addColor(obj){
+			//找到当前+所在的li元素
+			var curLi = obj.parentNode.parentNode;
+			//复制当前的li的所有内容
+			var newLi = curLi.cloneNode(true);
+			console.log(newLi);
+			//将+变成-
+			 var str = newLi.innerHTML;
+			 var str = str.replace('+','-');
+			 //将addColor变成removeColor；
+			 
+			 var str = str.replace('addColor','removeColor');
+			 newLi.innerHTML = str;
+			 //将str插入到当前列的后边
+			 curLi.parentNode.insertBefore(newLi,curLi.nextSibling);
+			 return false;
+
+			
+
+		}
+		function removeColor(obj){
+			curLi = obj.parentNode.parentNode;
+			curLi.parentNode.removeChild(curLi);
+		}
+	</script>
+</body>
+</html>

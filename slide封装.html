@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>slide封装</title>
+	<style type="text/css">
+		#box{
+			position:absolute;
+			width:100px;
+			height:100px;
+			left:300px;
+			top:300px;
+			background:red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<br/>
+	<button>向右滑动</button>
+	<button>向左滑动</button>
+	<script type="text/javascript">
+		var box = document.getElementById('box');
+		var btns = document.getElementsByTagName('button');
+		//封装一个函数，实现左右滑动效果
+		/*
+			ele,表示要滑动的元素对象
+			x1,表示起点
+			x2,表示终点
+			step,移动的距离
+			s,表示时间，每隔s毫秒变化一次
+		*/
+		function slide(ele,x1,x2,step,s){
+			var t1 = null;
+			//x1<x2向右滑动
+			if(x1<x2){
+			t1 = setInterval(function(){
+			
+				x1 = x1 + step;
+				if(x1>=x2){
+				clearInterval(t1);
+				}
+				ele.style.left = x1+"px";
+			},s);
+
+			}else{//向左滑动
+				
+				t1 = setInterval(function(){
+					x1 = x1-step;
+					if(x1<=x2){
+						clearInterval(t1);
+					}
+					ele.style.left = x1+"px";
+				},s);
+			}	
+		}
+		btns[0].onclick = function(){
+
+			var x1 = box.offsetLeft;
+			
+			slide(box,x1,1000,5,50);
+		}
+		btns[1].onclick = function(){
+			var x1 = box.offsetLeft;
+			
+			slide(box,x1,100,5,50);
+		}
+	</script>
+</body>
+</html>

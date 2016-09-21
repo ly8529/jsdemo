@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时间函数</title>
+</head>
+<body>
+<button>clearTimeout</button>
+	<button>clearInterval</button>
+	<script type="text/javascript">
+		window.onload = function(){
+			var timer = null;
+			timer = setInterval(function(){
+				var dl = new Date();
+
+				var y = dl.getFullYear();
+				var m = dl.getMonth()+1;
+				var d = dl.getDate();
+				var h = dl.getHours();
+				var i = dl.getMinutes();
+				var s = dl.getSeconds();
+			var str =y+"年"+m+"月"+d+"日"+h+"时"+i+"分"+s+"秒";
+			document.body.innerHTML = str;
+			},1000);
+
+		}
+	</script>
+
+	<script type="text/javascript">
+		
+		function f1(){
+			console.log('setTimeout');
+		}
+		var timer = window.setTimeout(f1,1000);
+		console.log("timer="+timer );
+
+		// var btns = document.getElementsByTagName('button');
+
+		// btns[0].onclick = function(){
+		// 	clearTimeout(t1);
+		// }
+
+		// var t2 = setInterval(function(){
+		// 	console.log( 'setInterval' );
+		// },1500);
+		
+		// btns[1].onclick = function(){
+		// 	clearInterval(t2);
+		// }
+	</script>
+</body>
+</html>
+<!-- 1、JS中的定时器有两种：
+
+window.setTimeout([function],[interval]) 设置一个定时器,并且设定了一个等待的时间[interval],当到达时间后,执行对应的方法[function],当方法执行完成定时器停止(但是定时器还在,只不过没用了);
+
+window.setInterval([function],[interval]) 设置一个定时器,并且设定了一个等待的时间[interval],当到达时间后,执行对应的方法[function],当方法执行完成,定时器并没有停止,以后每隔[interval]这么长的时间都会重新的执行对应的方法[function],直到我们手动清除定时器为止;
+
+2、JS中的定时器是有返回值的:->返回值是一个数字,代表当前是第几个定时器
+
+   var timer1=window.setTimeout(function(){},1000);  //timer1->1 当前是第一个定时器
+
+   var timer2=window.setTimeout(function(){},1000);  //timer2->2 当前是第二个定时器
+
+   window.clearTimeout(timer1); //->把第一个定时器清除掉,这里也可以用window.clearInterval(timer1)、window.clearTimeout(1)、window.clearInterval(timer1);
+
+  var timer3=window.setTimeout(function(){},1000);   //timer3->3 当前是第三个定时器 ,虽然上面的定时器timer1清除掉了,但是号还是继续往后排的;
+
+ 
+
+3、清除定时器：
+
+window.clearInterval(timer1)/window.clearTimeout(time1)；两种清除方式都可以清除通过setTimeout和setInterval设置的定时器(两种方式在设置定时器的时候有区别，清除定时器的时候没有区别)，并且参数不仅可以是timer，还可以是其返回值，例如1,2；需要注意的是，定时器即使清除了，其返回值也不会清除，之后设置的定时器的返回值也会在其返回值的基础上继续向后排，这点类似于银行的排队领号，即使1号的业务办理完了，后边的人仍是从2号开始继续领号，而不是重新从1开始； -->

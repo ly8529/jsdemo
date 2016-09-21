@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件中的this</title>
+
+</head>
+<body>
+	<h2 onmousedown="f1(this)">事件中的this</h2>
+	<script type="text/javascript">
+		var h2 = document.getElementsByTagName('h2')[0];
+		// html方式绑定
+		function f1(obj){
+			// console.log(obj);//<h2 onmousedown="f1(this)">
+		}
+		//DOM 0级绑定方式
+		// h2.onclick = function(){
+		// 	console.log(this);//h2
+		// }
+		//DOM 2级绑定方式
+		h2.addEventListener('mouseover',function(){
+			console.log(this);//<h2 onmousedown="f1(this)">
+		});
+	</script>
+</body>
+</html>

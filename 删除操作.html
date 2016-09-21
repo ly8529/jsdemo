@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	
+	<div id="box">
+		<h2>删除操作</h2>
+		<p>段落1</p>
+	</div>
+	
+	<button id='btn'>删除</button>
+	
+	<script type="text/javascript">
+		
+		//找父节点div
+		var box = document.getElementById('box');
+		//找子节点h2
+		var h2 = document.getElementsByTagName('h2')[0];
+		
+		var btn = document.getElementById('btn');
+		btn.onclick = function() {
+			//box.removeChild( h2 );
+			h2.parentNode.removeChild( h2 );
+		}
+	</script>
+
+</body>
+</html>
